@@ -23,10 +23,18 @@ Usage:
         });
 
 Settings:
+
 top - rows to fised from top
+
 left - columns to fixed from left
+
 class - name of your class
+
 width - width of result table (px, %, auto)
+
 height - height of result table (px, %, auto)
+
 footer - if true then top rows add to buttom 
+
 hover - if true then hoveres cell, column adn row will be highlighted
+
