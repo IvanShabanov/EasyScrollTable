@@ -1,0 +1,80 @@
+﻿.EasyScrollableTable {
+  overflow: hidden;
+}
+.EasyScrollableTable *{
+  margin: 0px;
+  box-sizing: border-box;
+}
+.EasyScrollableTable_header {
+  overflow: hidden;
+}
+.EasyScrollableTable table {
+  border-collapse: collapse;
+  table-layout: fixed; 
+}
+.EasyScrollableTable table tr td,
+.EasyScrollableTable table tr th{
+  table-layout: fixed;
+  border-bottom: 2px solid #000; 
+  border-top: 2px solid #000; 
+  border-right: 1px solid #000; 
+  border-left: 1px solid #000; 
+}
+.EasyScrollableTable_left,
+.EasyScrollableTable_right {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+.EasyScrollableTable_left {
+  z-index: 4;
+}
+.EasyScrollableTable_right {
+  z-index: 3;
+}
+.EasyScrollableTable_body .EasyScrollableTable_left,
+.EasyScrollableTable_body .EasyScrollableTable_right {
+  height: 100%;
+}
+.EasyScrollableTable_body .EasyScrollableTable_left {
+  z-index: 3;
+}
+.EasyScrollableTable_body .EasyScrollableTable_right {
+  z-index: 2;
+}
+
+.EasyScrollableTable td{
+  background: #fff;
+}
+.EasyScrollableTable_header table tr td{
+  background: #777;
+  color: #fff;
+  border-bottom: 2px solid #aaa; 
+  border-top: 2px solid #aaa; 
+  border-right: 1px solid #aaa; 
+  border-left: 1px solid #aaa; 
+  
+}
+.EasyScrollableTable_body .EasyScrollableTable_left table tr td{
+  background: #777;
+  color: #fff;
+  border-bottom: 2px solid #aaa; 
+  border-top: 2px solid #aaa; 
+  border-right: 1px solid #aaa; 
+  border-left: 1px solid #aaa; 
+  
+}
+.EasyScrollableTable_body .EasyScrollableTable_right{
+  overflow: auto;
+}
+.EasyScrollableTable_body table tr .hovered_col,
+.EasyScrollableTable_body table tr.hovered_row td {
+  background: #ffd;
+}
+.EasyScrollableTable_body table tr.hovered_row .hovered_col {
+  background: #ffa;
+}
+.EasyScrollableTable_header table tr .hovered_col,
+.EasyScrollableTable_left table tr.hovered_row td {
+  background: #555;
+}
