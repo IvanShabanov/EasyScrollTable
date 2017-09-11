@@ -24,7 +24,7 @@ Usage:
 
 Settings:
 
-top - rows to fised from top
+top - rows to fixed from top
 
 left - columns to fixed from left
 
