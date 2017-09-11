@@ -1,4 +1,4 @@
-# EasySrollTable
+# EasyScrollTable
 
 This is jQuery plugin. 
 Makes tables with scrolling content and fixed columns and rows.
