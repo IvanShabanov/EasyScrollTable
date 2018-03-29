@@ -36,5 +36,5 @@ height - height of result table (px, %, vh, auto)
 
 footer - if true then top rows add to buttom 
 
-hover - if true then hoveres cell, column adn row will be highlighted
+hover - if true then hoveres cell, column and row will be highlighted
 
