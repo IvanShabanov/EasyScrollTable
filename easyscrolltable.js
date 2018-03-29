@@ -214,7 +214,7 @@
                     });
                 }
 
-                if ((settings['height'].indexOf('%') !== -1) || (settings['height'].indexOf('%') !== -1)) {
+                if ((settings['width'].indexOf('%') !== -1) || (settings['height'].indexOf('%') !== -1)) {
                     /* Если высота или ширина задана в процентах */
                     $(window).resize(function () {
                         $($sidebar).css('margin-top', 0);
