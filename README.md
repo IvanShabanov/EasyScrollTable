@@ -30,9 +30,9 @@ left - columns to fixed from left
 
 class - name of your class
 
-width - width of result table (px, %, auto)
+width - width of result table (px, %, vw, auto)
 
-height - height of result table (px, %, auto)
+height - height of result table (px, %, vh, auto)
 
 footer - if true then top rows add to buttom 
 
