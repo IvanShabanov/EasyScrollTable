@@ -31,6 +31,7 @@
                 var bodyheight = 0;
                 var $class = '';
                 var $id, $body, $header, $sidebar;
+
                 if (settings['class'] != '') {
                     $class = '.' + settings['class'];
                 }
@@ -127,7 +128,7 @@
                     header = '';
                 };
 
-                result = '<div id= "' + $id + '" class="' + settings['class'] + ' EasyScrollableTable" style="width: ' + settings['width'] + '; height: ' + settings['height'] + '; position: relative;">';
+                result = '<div id= "' + $id + '" class="' + settings['class'] + ' EasyScrollableTable" style="width:' + settings['width'] + '; height:' + settings['height'] + '; position:relative;">';
                 result += header;
                 result += body;
                 if (settings['footer'] == true) {
@@ -137,9 +138,9 @@
                 result += '</div>';
                 $(this).after(result);
                 $(this).hide();
-                if (settings['height'].indexOf('%') !== -1) {
+                if ((settings['height'].indexOf('%') !== -1) || (settings['height'].indexOf('vh') !== -1)) {
                     totalheight = parseInt($('#' + $id + $class + '.EasyScrollableTable').height()) - 1;
-                    bodyheight = totalwidth - headerheight;
+                    bodyheight = totalheight - headerheight;
                     $('#' + $id + ' ' + $class + '.EasyScrollableTable_body').height(bodyheight);
                 } else if (parseInt(settings['height']) > 0) {
                     bodyheight = parseInt(settings['height']) - headerheight;
@@ -214,19 +215,27 @@
                     });
                 }
 
-                if ((settings['width'].indexOf('%') !== -1) || (settings['height'].indexOf('%') !== -1)) {
+                if ((settings['width'].indexOf('%') !== -1) || (settings['height'].indexOf('%') !== -1) || (settings['width'].indexOf('vw') !== -1) || (settings['height'].indexOf('vh') !== -1)) {
                     /* Если высота или ширина задана в процентах */
                     $(window).resize(function () {
                         $($sidebar).css('margin-top', 0);
                         $($header).css('margin-left', 0);
 
-                        totalheight = parseInt($('#' + $id + $class + '.EasyScrollableTable').height()) - 1;
-                        totalwidth = parseInt($('#' + $id + $class + '.EasyScrollableTable').width()) - 1;
-                        bodyheight = totalwidth - headerheight;
+                        totalheight = parseInt($('#' + $id).height()) - 1;
+                        totalwidth = parseInt($('#' + $id).width()) - 1;
+                        bodyheight = totalheight - headerheight;
                         rightwidth = totalwidth - leftwidth;
 
-                        $('#' + $id + ' ' + $class + '.EasyScrollableTable_body').height(bodyheight);
-                        $('#' + $id + ' ' + $class + '.EasyScrollableTable_right').width(rightwidth);
+                        console.log('--------------');
+                        console.log('$id:' + $id);
+                        console.log('totalheight:' + totalheight);
+                        console.log('totalwidth:' + totalwidth);
+                        console.log('bodyheight:' + bodyheight);
+                        console.log('rightwidth:' + rightwidth);
+
+
+                        $('#' + $id + ' ' + '.EasyScrollableTable_body').height(bodyheight);
+                        $('#' + $id + ' ' + '.EasyScrollableTable_right').width(rightwidth);
                     })
                 }
             };
