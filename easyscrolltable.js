@@ -79,12 +79,10 @@
                 right = '<div class="' + settings['class'] + ' EasyScrollableTable_right"><table>';
 
                 row = 1;
-                console.log('total_row:' + total_row);
-                console.log('total_col:' + total_col);
-                console.log(table[2][3]);
                 while (row <= total_row) {
                     temp_row = '';
                     col = 1;
+                    count_col = 1;
                     while (col <= total_col) {
                         if (typeof table[row][col] !== 'undefined') {
                             console.log('' + row + ',' + col + ':' + table[row][col]['t']);
@@ -99,10 +97,11 @@
                             temp_col = '' + temp_col + 'width = "' + table[row][col]['w'] + 'px" height = "' + table[row][col]['h'] + 'px"  style="width: ' + table[row][col]['w'] + 'px; max-width: ' + table[row][col]['w'] + 'px; min-width: ' + table[row][col]['w'] + 'px; height: ' + table[row][col]['h'] + 'px; max-height: ' + table[row][col]['h'] + 'px; min-height: ' + table[row][col]['h'] + 'px;">' + table[row][col]['t'] + '</td>';
 
                             temp_row += temp_col;
-                            if ((settings['left'] == col) && (settings['left'] > 0)) {
+                            if ((settings['left'] == count_col) && (settings['left'] > 0)) {
                                 left += '<tr>' + temp_row + '</tr>';
                                 temp_row = '';
                             };
+                            count_col = count_col + table[row][col]['colspan'];
                         }
                         col++;
                     }
