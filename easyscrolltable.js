@@ -79,12 +79,15 @@
                 right = '<div class="' + settings['class'] + ' EasyScrollableTable_right"><table>';
 
                 row = 1;
-
+                console.log('total_row:' + total_row);
+                console.log('total_col:' + total_col);
+                console.log(table[2][3]);
                 while (row <= total_row) {
                     temp_row = '';
                     col = 1;
                     while (col <= total_col) {
                         if (typeof table[row][col] !== 'undefined') {
+                            console.log('' + row + ',' + col + ':' + table[row][col]['t']);
                             temp_col = '<td ';
                             if (table[row][col]['colspan'] > 1) {
                                 temp_col = '' + temp_col + ' colspan = "' + table[row][col]['colspan'] + '"';
@@ -96,14 +99,12 @@
                             temp_col = '' + temp_col + 'width = "' + table[row][col]['w'] + 'px" height = "' + table[row][col]['h'] + 'px"  style="width: ' + table[row][col]['w'] + 'px; max-width: ' + table[row][col]['w'] + 'px; min-width: ' + table[row][col]['w'] + 'px; height: ' + table[row][col]['h'] + 'px; max-height: ' + table[row][col]['h'] + 'px; min-height: ' + table[row][col]['h'] + 'px;">' + table[row][col]['t'] + '</td>';
 
                             temp_row += temp_col;
-                            if (settings['left'] == col) {
+                            if ((settings['left'] == col) && (settings['left'] > 0)) {
                                 left += '<tr>' + temp_row + '</tr>';
                                 temp_row = '';
-                            }
-                            col = col + table[row][col]['colspan']
-                        } else {
-                            col = total_row + 1;
+                            };
                         }
+                        col++;
                     }
                     right += '<tr>' + temp_row + '</tr>';
                     if (settings['top'] == row) {
